@@ -33,7 +33,5 @@ public class TestAListsWordNet {
         List<String> expected2 = new ArrayList<>
                 (Arrays.asList("apple_tart", "lobster_tart", "quiche", "quiche_Lorraine", "tart", "tartlet"));
         assertEquals(b2, expected2);
-
-
     }
 }

@@ -12,6 +12,7 @@ import static com.google.common.truth.Truth.assertThat;
 public class TestMultiWordK0Hyponyms {
     // this case doesn't use the NGrams dataset at all, so the choice of files is irrelevant
     public static final String WORDS_FILE = "data/ngrams/very_short.csv";
+    public static final String WORDS_FILE49887 = "data/ngrams/top_49887_words.csv";
     public static final String TOTAL_COUNTS_FILE = "data/ngrams/total_counts.csv";
     public static final String SMALL_SYNSET_FILE = "data/wordnet/synsets16.txt";
     public static final String SMALL_HYPONYM_FILE = "data/wordnet/hyponyms16.txt";
@@ -34,4 +35,15 @@ public class TestMultiWordK0Hyponyms {
     // TODO: Add more unit tests (including edge case tests) here.
 
     // TODO: Create similar unit test files for the k != 0 cases.
+    @Test
+    public void testFoodAndCAkeK5() {
+        NgordnetQueryHandler studentHandler = AutograderBuddy.getHyponymHandler(
+                WORDS_FILE49887, TOTAL_COUNTS_FILE, LARGE_SYNSET_FILE, LARGE_HYPONYM_FILE);
+        List<String> words = List.of("food", "cake");
+
+        NgordnetQuery nq = new NgordnetQuery(words, 1950, 1990, 5);
+        String actual = studentHandler.handle(nq);
+        String expected = "[biscuit, cake, kiss, snap, wafer]";
+        assertThat(actual).isEqualTo(expected);
+    }
 }
