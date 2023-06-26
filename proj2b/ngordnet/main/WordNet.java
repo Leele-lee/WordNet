@@ -45,7 +45,7 @@ public class WordNet {
 
     // graph helper functions
 
-    public Set<Integer> getNodes(String wordNode) {
+    private Set<Integer> getNodes(String wordNode) {
         Set<Integer> wordIdSet = new HashSet<>();
         int i = 0;
         for (String[] a : wordList) {
@@ -74,4 +74,19 @@ public class WordNet {
         return list;
     }
 
+    public List<String> getHyponymWord(List<String> wordNodes) {
+        List<Set<String>> list = new ArrayList<>();
+
+
+        for (String word : wordNodes) {
+            list.add(new HashSet<>(getHyponymWord(word)));
+        }
+        Set<String> allWordsSet = new HashSet<>(list.get(0));
+        for (int i = 1; i < list.size(); i++) {
+            allWordsSet.retainAll(list.get(i));
+        }
+        List<String> collectionsWordHyponyms = new ArrayList<>(allWordsSet);
+        Collections.sort(collectionsWordHyponyms);
+        return collectionsWordHyponyms;
+    }
 }
