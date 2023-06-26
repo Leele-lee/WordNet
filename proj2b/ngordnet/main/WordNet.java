@@ -45,7 +45,7 @@ public class WordNet {
 
     // graph helper functions
 
-    private Set<Integer> getNodes(String wordNode) {
+    public Set<Integer> getNodes(String wordNode) {
         Set<Integer> wordIdSet = new HashSet<>();
         int i = 0;
         for (String[] a : wordList) {

@@ -14,10 +14,11 @@ public class Main {
 
 //        NGramMap ngm = new NGramMap(wordFile, countFile);
 
+        WordNet wn = new WordNet(synsetFile, hyponymFile);
         hns.startUp();
 //        hns.register("history", new HistoryHandler(ngm));
 //        hns.register("historytext", new HistoryTextHandler(ngm));
 
-        hns.register("hyponyms", new HyponymsHandler());
+        hns.register("hyponyms", new HyponymsHandler(wn));
     }
 }
