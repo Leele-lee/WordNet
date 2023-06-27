@@ -36,14 +36,26 @@ public class TestMultiWordK0Hyponyms {
 
     // TODO: Create similar unit test files for the k != 0 cases.
     @Test
-    public void testFoodAndCAkeK5() {
+    public void testBowlGalleryK0() {
         NgordnetQueryHandler studentHandler = AutograderBuddy.getHyponymHandler(
-                WORDS_FILE49887, TOTAL_COUNTS_FILE, LARGE_SYNSET_FILE, LARGE_HYPONYM_FILE);
-        List<String> words = List.of("food", "cake");
+                WORDS_FILE, TOTAL_COUNTS_FILE, LARGE_SYNSET_FILE, LARGE_HYPONYM_FILE);
+        List<String> words = List.of("bowl", "gallery");
 
-        NgordnetQuery nq = new NgordnetQuery(words, 1950, 1990, 5);
+        NgordnetQuery nq = new NgordnetQuery(words, 0, 0, 0);
         String actual = studentHandler.handle(nq);
-        String expected = "[biscuit, cake, kiss, snap, wafer]";
+        String expected = "[amphitheater, amphitheatre]";
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void testEnergyLightSparkleK0() {
+        NgordnetQueryHandler studentHandler = AutograderBuddy.getHyponymHandler(
+                WORDS_FILE, TOTAL_COUNTS_FILE, LARGE_SYNSET_FILE, LARGE_HYPONYM_FILE);
+        List<String> words = List.of("energy", "light", "sparkle"); // <-- replace with the appropriate list of words!
+
+        NgordnetQuery nq = new NgordnetQuery(words, 0, 0, 0);
+        String actual = studentHandler.handle(nq);
+        String expected = "[light, scintillation, spark, sparkle, twinkle]";
         assertThat(actual).isEqualTo(expected);
     }
 }
