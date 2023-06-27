@@ -58,6 +58,7 @@ public class WordNet {
         return wordIdSet;
     }
 
+    /* Given a word return a list of hyponyms word in alphabetical order, with no repeat words */
     public List<String> getHyponymWord(String wordNode) {
         Set<String> allHyponym = new HashSet<>();
         Set<Integer> wordIdSet = getNodes(wordNode);
@@ -73,9 +74,10 @@ public class WordNet {
         return list;
     }
 
+    /* Given a list of words only return common hyponyms of each word in alphabetical order,
+    with no repeat words */
     public List<String> getHyponymWord(List<String> wordNodes) {
         List<Set<String>> list = new ArrayList<>();
-
 
         for (String word : wordNodes) {
             list.add(new HashSet<>(getHyponymWord(word)));

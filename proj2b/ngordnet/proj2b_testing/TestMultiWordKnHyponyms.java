@@ -67,8 +67,4 @@ public class TestMultiWordKnHyponyms {
                         "map, operator, sec, series, sin, transformation, translation]";
         assertThat(actual).isEqualTo(expected);
     }
-
-
-
-
 }
