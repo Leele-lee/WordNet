@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 
-import static com.google.common.truth.Truth.assertThat;
 public class TestWordNet {
     @Test
     public void checkDescend() {

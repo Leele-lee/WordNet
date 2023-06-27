@@ -3,9 +3,6 @@ package ngordnet.main;
 import ngordnet.browser.NgordnetQuery;
 import ngordnet.browser.NgordnetQueryHandler;
 import ngordnet.ngrams.NGramMap;
-import ngordnet.ngrams.TimeSeries;
-
-import javax.print.attribute.HashPrintJobAttributeSet;
 import java.util.*;
 
 public class HyponymsHandler extends NgordnetQueryHandler {
@@ -20,8 +17,6 @@ public class HyponymsHandler extends NgordnetQueryHandler {
 
     public String handle(NgordnetQuery q) {
         String wnsb = new String();
-        List<Set<String>> list = new ArrayList<>();
-        Set<String> allWordsSet = new HashSet<>();
         List<String> kWords = new ArrayList<>();
 
 
